@@ -1,71 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Leandro/Documents/CURSOS TI/Python Scripts/Desenvolvimento Python/vinhos.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1704"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,15:mainsqlite_sequence"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="MERCADORIA" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="68"/><column index="2" value="94"/><column index="3" value="68"/><column index="4" value="104"/><column index="5" value="170"/><column index="6" value="119"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="55"/><column index="2" value="50"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vinhos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="50"/><column index="2" value="212"/><column index="3" value="65"/><column index="4" value="71"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="Query Produtos">CREATE TABLE IF NOT EXISTS MERCADORIA(
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Leandro/Documents/CURSOS TI/Python Scripts/Desenvolvimento Python/vinhos.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="147"/><column_width id="3" width="950"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,10:mainMERCADORIA"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="MERCADORIA" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="170"/><column index="2" value="131"/><column index="3" value="68"/><column index="4" value="147"/><column index="5" value="170"/><column index="6" value="119"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="136"/><column index="2" value="97"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vinhos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="50"/><column index="2" value="212"/><column index="3" value="65"/><column index="4" value="71"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="Query Produtos">--CRIAÇÃO DE TABELA PARA REGISTRO DE USUÁRIO LOGIN
+CREATE TABLE IF NOT EXISTS USUARIO(
 	ID INTEGER PRIMARY KEY,
-	PRODUTO VARCHAR(50) NOT NULL,
-	PRECO REAL NOT NULL ,
-	TIPO VARCHAR(50) NOT NULL,
+	NOME VARCHAR(50) NOT NULL,
+	EMAIL REAL NOT NULL ,
+	SENHA VARCHAR(50) NOT NULL,
 	REGIAO VARCHAR(50) NOT NULL,
 	GRADUACAO DECIMAL NOT NULL
 );
 
-DELETE FROM MERCADORIA --EXCLUSÃO DE TODOS OS REGISTROS DA TABELA
-DROP TABLE MERCADORIA --EXCLUSÃO DA TABELEA MERCADORIA
-
+--CRIAÇÃO DE TABELA MERCADORIA PARA REGISTRO DE PRODUTOS
+CREATE TABLE IF NOT EXISTS MERCADORIA(
+	PRODUTO TEXT ,
+	PRECO REAL ,
+	TIPO TEXT,
+	REGIAO TEXT ,
+	GRADUACAO DECIMAL 
+);
+
+DELETE FROM MERCADORIA --EXCLUSÃO DE TODOS OS REGISTROS DA TABELA
+DROP TABLE MERCADORIA --EXCLUSÃO DA TABELEA MERCADORIA
+
 INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '59.9', 'Branco', 'Serra Gaucha', 14.5);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '69.9', 'Branco', 'Serra Gaúcha', 13.5);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '69.9', 'Rosé', 'Serra Gaúcha', 14.5);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '59.9', 'Rosé', 'Serra Gaúcha', 14.5);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '69.9', 'Tinto', 'Serra Gaúcha', 12.2);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '99.9', 'Tinto', 'Serra Gaúcha', 12.9);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '29.9', 'Rosé', 'Serra Catarinense', 11.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '32.9', 'Rosé', 'Serra Catarinense', 11.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '39.9', 'Branco', 'Serra Catarinense', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '29.9', 'Tinto', 'Serra Catarinense', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '36.9', 'Tinto', 'Serra Catarinense', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '39.9', 'Tinto', 'Serra Catarinense', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '49.9', 'Branco', 'Vale do São Francisco ', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '39.9', 'Branco', 'Vale do São Francisco ', 16.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '29.9', 'Rosé', 'Vale do São Francisco ', 16.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '39.9', 'Rosé', 'Vale do São Francisco ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '36.9', 'Rosé', 'Vale do São Francisco ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '39.9', 'Tinto', 'Vale do São Francisco ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '29.9', 'Tinto', 'Vale do São Francisco ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '34.9', 'Tinto', 'Vale do São Francisco ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '36.9', 'Tinto', 'Vale do São Francisco ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '79.9', 'Tinto', 'Vale do São Francisco ', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '109.9', 'Tinto', 'Vale do São Francisco ', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodegas y Viñedos Baudron', '26.9', 'Tinto', 'Serra do Sudeste ', 16.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodegas y Viñedos Baudron', '39.9', 'Tinto', 'Serra do Sudeste ', 16.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '109.9', 'Tinto', 'Serra do Sudeste ', 16.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '259.9', 'Tinto', 'Serra do Sudeste ', 16.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '109.9', 'Branco', 'Serra do Sudeste ', 16.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '89.9', 'Rosé', 'Serra do Sudeste ', 13.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Andean Vineyards', '34.9', 'Tinto', 'Campanha Gaúcha ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '27.9', 'Tinto', 'Campanha Gaúcha ', 12.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '44.9', 'Tinto', 'Campanha Gaúcha ', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '159.6', 'Tinto', 'Campanha Gaúcha ', 10.3);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '39.9', 'Tinto', 'Campanha Gaúcha ', 9.2);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Casa Perini', '64.9', 'Tinto', 'Campanha Gaúcha ', 9.2);
-INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '100.0', 'Gourmet', 'Campanha Gaúcha ', 9.2)
-
-SELECT *
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '69.9', 'Branco', 'Serra Gaúcha', 13.5);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '69.9', 'Rosé', 'Serra Gaúcha', 14.5);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '59.9', 'Rosé', 'Serra Gaúcha', 14.5);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '69.9', 'Tinto', 'Serra Gaúcha', 12.2);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('DFJ Vinhos', '99.9', 'Tinto', 'Serra Gaúcha', 12.9);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '29.9', 'Rosé', 'Serra Catarinense', 11.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '32.9', 'Rosé', 'Serra Catarinense', 11.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '39.9', 'Branco', 'Serra Catarinense', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '29.9', 'Tinto', 'Serra Catarinense', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '36.9', 'Tinto', 'Serra Catarinense', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('J. García Carrión', '39.9', 'Tinto', 'Serra Catarinense', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '49.9', 'Branco', 'Vale do São Francisco ', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '39.9', 'Branco', 'Vale do São Francisco ', 16.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '29.9', 'Rosé', 'Vale do São Francisco ', 16.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '39.9', 'Rosé', 'Vale do São Francisco ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '36.9', 'Rosé', 'Vale do São Francisco ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '39.9', 'Tinto', 'Vale do São Francisco ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '29.9', 'Tinto', 'Vale do São Francisco ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '34.9', 'Tinto', 'Vale do São Francisco ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '36.9', 'Tinto', 'Vale do São Francisco ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '79.9', 'Tinto', 'Vale do São Francisco ', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '109.9', 'Tinto', 'Vale do São Francisco ', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodegas y Viñedos Baudron', '26.9', 'Tinto', 'Serra do Sudeste ', 16.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodegas y Viñedos Baudron', '39.9', 'Tinto', 'Serra do Sudeste ', 16.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '109.9', 'Tinto', 'Serra do Sudeste ', 16.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '259.9', 'Tinto', 'Serra do Sudeste ', 16.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '109.9', 'Branco', 'Serra do Sudeste ', 16.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Bodega Del Fin Del Mundo', '89.9', 'Rosé', 'Serra do Sudeste ', 13.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Andean Vineyards', '34.9', 'Tinto', 'Campanha Gaúcha ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '27.9', 'Tinto', 'Campanha Gaúcha ', 12.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '44.9', 'Tinto', 'Campanha Gaúcha ', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '159.6', 'Tinto', 'Campanha Gaúcha ', 10.3);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Belhara Estate', '39.9', 'Tinto', 'Campanha Gaúcha ', 9.2);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Casa Perini', '64.9', 'Tinto', 'Campanha Gaúcha ', 9.2);
+INSERT INTO MERCADORIA (&quot;PRODUTO&quot;, &quot;PRECO&quot;, &quot;TIPO&quot;, &quot;REGIAO&quot;, &quot;GRADUACAO&quot;) VALUES ('Fecovita', '101.54', 'Gourmet', 'Campanha Gaúcha ', 9.2)
+
+SELECT *
 FROM MERCADORIA --SELEÇÃO DE TODOS OS REGISTROS
-
-SELECT *
-FROM MERCADORIA
-WHERE PREÇO BETWEEN '0' AND '50'
-ORDER BY PREÇO ASC --SELEÇÃO DE PRODUTOS DE R$0,00 Á R$50,00 EM ORDEM CRESCENTE DOS PREÇOS
-
-SELECT * 
-FROM MERCADORIA 
-WHERE PREÇO BETWEEN '50' AND '300'
-ORDER BY PREÇO ASC  --SELEÇÃO DE PRODUTOS DE R$50,00 Á R$300,00 EM ORDEM CRESCENTE DOS PREÇOS
-
-SELECT *, COUNT(PREÇO) AS QTD_PREÇO
-FROM MERCADORIA
-WHERE PREÇO &gt; '0'
-GROUP BY PREÇO
-HAVING COUNT(PREÇO)
-ORDER BY PRODUTO --SELEÇÃO DE PRODUTOS E A CONTAGEM DOS 
-			   --PREÇOS DE CADA PRODUTO, AGRUPANDO AS CONTAGENS E ORDENANDO
-			   
+
+SELECT *
+FROM MERCADORIA
+WHERE PRECO BETWEEN '0' AND '50'
+ORDER BY PRECO ASC --SELEÇÃO DE PRODUTOS DE R$0,00 Á R$50,00 EM ORDEM CRESCENTE DOS PRECOS
+
+SELECT * 
+FROM MERCADORIA 
+WHERE PRECO BETWEEN '50' AND '300'
+ORDER BY PRECO ASC  --SELEÇÃO DE PRODUTOS DE R$50,00 Á R$300,00 EM ORDEM CRESCENTE DOS PRECOS
+
+SELECT *, COUNT(PRECO) AS QTD_PRECO
+FROM MERCADORIA
+WHERE PRECO &gt; '0'
+GROUP BY PRECO
+HAVING COUNT(PREÇO)
+ORDER BY PRODUTO --SELEÇÃO DE PRODUTOS E A CONTAGEM DOS 
+			   --PREÇOS DE CADA PRODUTO, AGRUPANDO AS CONTAGENS E ORDENANDO
+			   
 DELETE FROM MERCADORIA</sql><current_tab id="0"/></tab_sql></sqlb_project>
