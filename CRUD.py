@@ -4,31 +4,66 @@ import sqlite3 as conector
 #Criando Conexão
 conexao = conector.connect('vinhos.db')
 
-#Inserir Produtos
-def inserir_prod(i):
+#Inserir Produtos (INSERT)
+def inserir_prod(dados):
     with conexao:
         cursor = conexao.cursor()
         query = "INSERT INTO PRODUTOS (Produto, Preco, Tipo, Regiao, Graduacao) VALUES (?, ?, ?, ?, ?)"
-        cursor.execute(query, i)
+        cursor.execute(query, dados)
 
-#Inserir Usuário
-def inserir_user(i):
+
+
+#Atualizar dados (UPDATE)
+def atualizar_dados(id):
     with conexao:
         cursor = conexao.cursor()
-        query = "INSERT INTO USUARIO (Nome, Email, Senha, ConfirmaSenha) VALUES (?, ?, ?, ?)"
-        cursor.execute(query, i)
+        query = "UPDATE PRODUTOS set Produto=?, Preco=?, Tipo=?, Regiao=?, Graduacao=? WHERE IDProduto=?"
+        cursor.execute(query, id)
 
-#Mostrar todos o Dados
+#Excluir Produto (DELETE)
+def delete_dados(id):
+    with conexao:
+        cursor = conexao.cursor()
+        query = "DELETE FROM PRODUTOS WHERE IDProduto=?"
+        cursor.execute(query, id)
+
+#Mostrar todos o Dados (SELECT)
 def mostrar_dados():
+    dados = []
     with conexao:
         cursor = conexao.cursor()
         query = "SELECT * FROM PRODUTOS"
         cursor.execute(query)
-        for informacao in cursor.fetchall():
-            print(informacao)
+        rows = cursor.fetchall()
+        for row in rows:
+            dados.append(row)
+    return dados
 
-def editar_dados(i):
+def visual_dado(id):
+    dados_indi = []
     with conexao:
         cursor = conexao.cursor()
-        query = "UPDATE PRODUTOS set PRODUTO =? WHERE ID=?"
-        cursor.execute(query, i)
+        query = "SELECT * FROM PRODUTOS WHERE IDproduto=?"
+        cursor.execute(query, id)
+        rows = cursor.fetchall()
+        for row in rows:
+            dados_indi.append(row)
+    return dados_indi
+
+#--------------------------------------------------------------------------------------------------------------
+
+#Inserir Usuário (INSERT)
+def inserir_user(dados):
+    with conexao:
+        cursor = conexao.cursor()
+        query = "INSERT INTO USUARIO (Nome, Email, Senha, ConfirmaSenha) VALUES (?, ?, ?, ?)"
+        cursor.execute(query, dados)
+
+def consulta_user(login, senha):
+    with conexao:
+        cursor = conexao.cursor()
+        query = "SELECT * FROM USUARIO WHERE Nome = ? AND Senha = ?"
+        cursor.execute(query, (login, senha))
+        rows = cursor.fetchall()
+        for row in rows:
+            return row
